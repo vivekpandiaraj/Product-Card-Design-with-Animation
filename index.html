@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card Design</title>
+    <style type="text/css">
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.product-card {
+    max-width: 300px;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.product-image {
+    position: relative;
+    overflow: hidden;
+}
+.product-image img {
+    width: 100%;
+    display: block;
+}
+.product-category {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 8px;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.product-info {
+    padding: 15px;
+}
+.product-title {
+    margin: 0;
+    font-size: 18px;
+}
+.product-price {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #888;
+}
+.product-action {
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #FDD835, #FBC02D);
+}
+
+.add-to-cart {
+    background-color: #37940b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-card:hover .add-to-cart {
+    background-color: #E64A19;
+}
+
+
+@media screen and (max-width: 768px) {
+    .product-card {
+        max-width: 100%;
+    }
+}
+.add-to-cart {
+    background-color: #FF5722;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.add-to-cart:before {
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.2);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+@keyframes ripple-effect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.add-to-cart.clicked:before {
+    animation: ripple-effect 0.6s linear;
+}
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <div class="product-image">
+            <img src="https://placehold.jp/3d4070/ffffff/700x700.png?text=Product%20Image&css=%7B%22border-radius%22%3A%2215px%22%2C%22background%22%3A%22%20-webkit-gradient(linear%2C%20left%20top%2C%20left%20bottom%2C%20from(%23cc00cc)%2C%20to(%23cccccc))%22%7D" alt="Product Image">
+            <div class="product-category">Category</div>
+        </div>
+        <div class="product-info">
+            <h2 class="product-title">Product Title</h2>
+            <div class="product-price">Rs. 200/-</div>
+        </div>
+        <div class="product-action">
+            <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+    <script>
+function addToCart() {
+    const addToCartButton = document.querySelector('.add-to-cart');
+    addToCartButton.classList.add('clicked');
+    //Kindly implement your code as per your wish.
+}
+</script>
+</body>
+</html>
